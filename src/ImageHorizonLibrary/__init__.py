@@ -2,7 +2,7 @@
 from collections import OrderedDict
 from contextlib import contextmanager
 
-from errors import *    # import errors before checking dependencies!
+from .errors import *    # import errors before checking dependencies!
 
 try:
     import pyautogui as ag
@@ -18,17 +18,17 @@ except ImportError:
                                    'Robot Framework or it is not installed.')
 
 try:
-    from Tkinter import Tk as TK
+    from tkinter import Tk as TK
 except ImportError:
     raise ImageHorizonLibraryError('There is either something wrong with '
                                    'Tkinter or you are running this on Java, '
                                    'which is not a supported platform. Please '
                                    'use Python and verify that Tkinter works.')
 
-import utils
-from interaction import *
-from recognition import *
-from version import VERSION
+from . import utils
+from .interaction import *
+from .recognition import *
+from version import Version as VERSION
 
 __version__ = VERSION
 
@@ -155,7 +155,7 @@ class ImageHorizonLibrary(_Keyboard,
         ag.click(x, y, clicks=clicks, button=button, interval=interval)
 
     def _convert_to_valid_special_key(self, key):
-        key = unicode(key).lower()
+        key = str(key).lower()
         if key.startswith('key.'):
             key = key.split('key.', 1)[1]
         elif len(key) > 1:

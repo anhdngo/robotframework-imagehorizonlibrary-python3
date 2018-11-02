@@ -123,16 +123,16 @@ class TestRecognizeImages(TestCase):
             self.lib.set_reference_folder(path_join(CURDIR, ref))
             self._verify_path_works(img, 'my_picture.png')
 
-        self.lib.reference_folder = path_join(CURDIR, 'symbolic_link')
+        self.lib.reference_folder = path_join(CURDIR, './reference_images')
         self.lib.locate('mY_PiCtURe')
-        expected_path = path_join(CURDIR, 'symbolic_link', 'my_picture.png')
+        expected_path = path_join(CURDIR, 'reference_images', 'my_picture.png')
         self.mock.locateCenterOnScreen.assert_called_once_with(expected_path)
         self.mock.reset_mock()
 
         self.lib.reference_folder = path_join(CURDIR, u'rëförence_imägës')
         self.lib.locate(u'mŸ PäKSÖR')
         expected_path = path_join(CURDIR, u'rëförence_imägës',
-                                  u'mÿ_päksör.png').encode('utf-8')
+                                  u'mÿ_päksör.png')
         self.mock.locateCenterOnScreen.assert_called_once_with(expected_path)
         self.mock.reset_mock()
 

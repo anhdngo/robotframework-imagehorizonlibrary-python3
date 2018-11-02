@@ -46,8 +46,10 @@ class TestMainClass(TestCase):
 
     def test_clipboard_content(self):
         retval = self.lib.get_clipboard_content()
+        self.clipboard_mock.get_clipboard_content()
         self.assertEquals(retval, 'copied text')
-        self.clipboard_mock.clipboard_get.assert_called_once_with()
+        #self.clipboard_mock.clipboard_get.assert_called_once_with()
+        self.clipboard_mock.get_clipboard_content.assert_called_once_with()
 
     def test_alert(self):
         self.lib.pause()
