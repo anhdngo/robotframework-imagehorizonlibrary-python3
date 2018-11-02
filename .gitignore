@@ -6,3 +6,5 @@ log.html
 *-screenshot-*.png
 *\$py.class
 *.swp
+build/*
+dist/*
