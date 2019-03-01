@@ -28,7 +28,8 @@ except ImportError:
 from . import utils
 from .interaction import *
 from .recognition import *
-from version import Version as VERSION
+#from .version import Version as VERSION
+from .version import VERSION
 
 __version__ = VERSION
 
@@ -49,7 +50,7 @@ class ImageHorizonLibrary(_Keyboard,
 
     = Reference image names =
     ``reference_image`` parameter can be either a single file, or a folder.
-    If ``reference_image`` is a folder, image recognition is tried separately 
+    If ``reference_image`` is a folder, image recognition is tried separately
     for each image in that folder, in alphabetical order until a match is found.
 
     For ease of use, reference image names are automatically normalized
