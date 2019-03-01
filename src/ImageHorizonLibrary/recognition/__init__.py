@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 # -*- coding: utf-8 -*-
 from ._recognize_images import _RecognizeImages
 from ._screenshot import _Screenshot

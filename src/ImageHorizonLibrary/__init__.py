@@ -1,3 +1,5 @@
+from __future__ import absolute_import
+
 # -*- coding: utf-8 -*-
 from collections import OrderedDict
 from contextlib import contextmanager
@@ -20,10 +22,13 @@ except ImportError:
 try:
     from tkinter import Tk as TK
 except ImportError:
-    raise ImageHorizonLibraryError('There is either something wrong with '
-                                   'Tkinter or you are running this on Java, '
-                                   'which is not a supported platform. Please '
-                                   'use Python and verify that Tkinter works.')
+    try:
+        from Tkinter import Tk as TK
+    except ImportError:
+        raise ImageHorizonLibraryError('There is either something wrong with '
+                                       'Tkinter or you are running this on Java, '
+                                       'which is not a supported platform. Please '
+                                       'use Python and verify that Tkinter works.')
 
 from . import utils
 from .interaction import *
