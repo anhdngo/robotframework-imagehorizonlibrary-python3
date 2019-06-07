@@ -28,7 +28,8 @@ __ https://travis-ci.org/Eficode/robotframework-imagehorizonlibrary/
 Prerequisites
 -------------
 
-- `Python 2.7+`_ (unfortunately not 3.x)
+- `Python 2.7+` (Cannot Use basestrings)
+- `Python 3.6+`
 - pip_ for easy installation
 - pyautogui_ and `it's prerequisites`_
 - `Robot Framework`_
